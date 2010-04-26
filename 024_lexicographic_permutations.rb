@@ -1,18 +1,17 @@
 require 'pp'
 def perms(*a)
-  x = a.pop
-  return [[x]] if a.empty?
+  return [a] if a.size == 1
   p = []
-  smaller_perms = perms(*a)
-  smaller_perms.each do |sp|
-    sp.each_index do |i|
-      copy = Array.new(sp)
-      p << copy.insert(i, x)
+  a.each do |x|
+    b = Array.new(a)
+    b.delete(x)
+    perms(*b).each do |d|
+      p << [x] + d
+      return p if p.size > 1_000_000 && p[0].size == 10
     end
-    p << sp + [x]
   end
   return p
 end
 
-p = perms(0,1,2)
-pp p
+p = perms(0,1,2,3,4,5,6,7,8,9)
+pp p[999_999]
