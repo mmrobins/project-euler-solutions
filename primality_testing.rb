@@ -21,7 +21,7 @@ class Integer
     numbers_to_test = (3..self).step(2).map {|x| x}
     primes = []
     i = 1
-    # only need to test to the sqrt of the number since nothing larger than the sqrt could possible divide
+    # only need to test to the sqrt of the number since nothing larger than the sqrt could possibly divide
     while i < Math.sqrt(self)
       i = numbers_to_test.shift
       primes << i
