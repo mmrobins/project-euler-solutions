@@ -22,10 +22,10 @@ class Triangle
   def initialize(triangle)
     @totals = []
     @triangle = triangle
-    next_level(triangle, 0, 0)
+    #next_level(triangle, 0, 0)
   end
   def to_s
-    pp @triangle
+    @triangle
   end
   def next_level(triangle, position, total)
     current_level = triangle.shift

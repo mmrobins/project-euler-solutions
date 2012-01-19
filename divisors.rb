@@ -1,5 +1,7 @@
 require 'mathn'
 require 'benchmark'
+require 'sum'
+
 class Prime
   def each
     @primes.each do |i|
@@ -47,6 +49,10 @@ class Integer
 
   def proper_divisors
     divisors[0..-2]
+  end
+
+  def abundant?
+    self.proper_divisors.sum > self
   end
 end
 
